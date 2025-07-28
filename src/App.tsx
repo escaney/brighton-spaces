@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Map from './components/Map';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50" data-testid="app-container">
+      <header className="bg-white shadow-md">
+        <div className="max-w-6xl mx-auto px-4 py-6">
+          <h1 className="text-3xl font-bold text-gray-800 text-center mb-2">
+            Brighton Spaces
+          </h1>
+          <p className="text-gray-600 text-center">
+            Find free water fountains around Brighton & Hove
+          </p>
+        </div>
       </header>
+      <main className="max-w-6xl mx-auto p-4">
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <Map />
+        </div>
+      </main>
     </div>
   );
 }
