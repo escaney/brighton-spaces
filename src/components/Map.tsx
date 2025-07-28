@@ -1,42 +1,48 @@
-import React, { FunctionComponent } from 'react';
+import React, { useState, useEffect, FunctionComponent } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { getWaterFountains } from '../services/water-fountain';
+import { WaterFountain } from '../types/water-fountains';
 
-type WaterFountain = {
-  id: number;
-  name: string;
-  lat: number;
-  lng: number;
-  description?: string;
-}
-
-const sampleFountains: WaterFountain[] = [
-  {
-    id: 1,
-    name: "Brighton Beach Water Fountain",
-    lat: 50.8198,
-    lng: -0.1371,
-    description: "Near the beach promenade"
-    // add postcode with open in g-maps link
-    // postcode: "BN1 2FN" // Example postcode, not used in this component
-  },
-  {
-    id: 2,
-    name: "Preston Park Water Fountain", 
-    lat: 50.8403,
-    lng: -0.1462,
-    description: "In the main park area"
-  },
-  {
-    id: 3,
-    name: "The Lanes Water Fountain",
-    lat: 50.8225,
-    lng: -0.1372,
-    description: "Historic quarter fountain"
-  }
-];
-
+// todo add react query to handle fetching and caching
 const Map: FunctionComponent = () => {
+  const [fountains, setFountains] = useState<WaterFountain[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  
   const brightonCenter: [number, number] = [50.8225, -0.1372];
+
+  useEffect(() => {
+    const fetchFountains = async () => {
+      try {
+        setLoading(true);
+        const data = await getWaterFountains();
+        setFountains(data);
+      } catch (err) {
+        setError('Failed to load water fountains');
+        console.error('Error fetching fountains:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFountains();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-96">
+        <div className="text-gray-600">Loading water fountains...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center h-96">
+        <div className="text-red-600">{error}</div>
+      </div>
+    );
+  }
 
   return (
     <MapContainer
@@ -49,7 +55,7 @@ const Map: FunctionComponent = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      {sampleFountains.map((fountain) => (
+      {fountains.map((fountain) => (
         <Marker key={fountain.id} position={[fountain.lat, fountain.lng]}>
           <Popup>
             <div className="p-2">
