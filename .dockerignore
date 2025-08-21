@@ -1,0 +1,37 @@
+# Dependencies
+node_modules
+npm-debug.log*
+
+# Build outputs
+build
+dist
+
+# Development files (keep .env.local for build process)
+.env.development.local
+.env.test.local
+
+# Version control
+.git
+.gitignore
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+*.md
+
+# Test coverage
+coverage
+
+# Docker files (don't copy Docker files into the container)
+Dockerfile
+.dockerignore
+docker-compose*.yml

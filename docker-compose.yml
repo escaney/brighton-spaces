@@ -1,0 +1,9 @@
+services:
+  brighton-spaces:
+    build: .
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env.local
+    container_name: brighton-spaces-app
+    restart: unless-stopped
