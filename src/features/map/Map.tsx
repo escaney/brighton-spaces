@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { useWaterFountains } from './hooks/useWaterFountains';
+import { useOSMWaterFountains } from '../../hooks/useOSMWaterFountains';
 
 const Map: FunctionComponent = () => {
-  const { data: fountains, isLoading, error } = useWaterFountains();
+  const { data: fountains, isLoading, error } = useOSMWaterFountains();
   
   const brightonCenter: [number, number] = [50.8225, -0.1372];
 
@@ -42,6 +42,7 @@ const Map: FunctionComponent = () => {
               {fountain.description && (
                 <p className="text-gray-600 text-sm">{fountain.description}</p>
               )}
+              <p className="text-xs text-blue-600 mt-1">Source: OpenStreetMap</p>
             </div>
           </Popup>
         </Marker>
