@@ -1,16 +1,16 @@
 import React, { FunctionComponent } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { useOSMWaterFountains } from '../../hooks/useOSMWaterFountains';
+import { useOSMAmenities } from '../../hooks/useOSMAmenities';
 
 const Map: FunctionComponent = () => {
-  const { data: fountains, isLoading, error } = useOSMWaterFountains();
+  const { data: amenities, isLoading, error } = useOSMAmenities(['drinking-water', 'toilets']);
   
   const brightonCenter: [number, number] = [50.8225, -0.1372];
 
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-96">
-        <div className="text-gray-600">Loading water fountains...</div>
+        <div className="text-gray-600">Loading amenities...</div>
       </div>
     );
   }
@@ -18,7 +18,7 @@ const Map: FunctionComponent = () => {
   if (error) {
     return (
       <div className="flex items-center justify-center h-96">
-        <div className="text-red-600">Failed to load water fountains</div>
+        <div className="text-red-600">Failed to load amenities</div>
       </div>
     );
   }
@@ -34,15 +34,14 @@ const Map: FunctionComponent = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      {fountains?.map((fountain) => (
-        <Marker key={fountain.id} position={[fountain.lat, fountain.lng]}>
+      {amenities?.map((amenity) => (
+        <Marker key={amenity.id} position={[amenity.lat, amenity.lng]}>
           <Popup>
             <div className="p-2">
-              <h3 className="font-semibold text-gray-800 mb-1">{fountain.name}</h3>
-              {fountain.description && (
-                <p className="text-gray-600 text-sm">{fountain.description}</p>
+              <h3 className="font-semibold text-gray-800 mb-1">{amenity.name}</h3>
+              {amenity.description && (
+                <p className="text-gray-600 text-sm">{amenity.description}</p>
               )}
-              <p className="text-xs text-blue-600 mt-1">Source: OpenStreetMap</p>
             </div>
           </Popup>
         </Marker>
