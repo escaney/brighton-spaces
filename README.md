@@ -1,13 +1,5 @@
 # Brighton Spaces
 
-A React application for finding free water fountains around Brighton & Hove.
-
-## Features
-
-- Interactive map showing water fountain locations
-- Real-time data from Supabase database
-- Responsive design for mobile and desktop
-
 ## Tech Stack
 
 - **Frontend**: React 19, TypeScript, Tailwind CSS
