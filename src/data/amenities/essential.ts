@@ -1,6 +1,6 @@
 /** @format */
 
-import { Category } from '../../types/categories';
+import { Category } from '../../types/server/categories';
 
 export const ESSENTIAL_AMENITIES: Category = {
     id: 'amenities',

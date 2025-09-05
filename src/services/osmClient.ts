@@ -1,6 +1,6 @@
 /** @format */
 
-import { OSMResponse } from '../types/osm-data';
+import { OSMResponse } from '../types/server/osm-data';
 import { OVERPASS_API_URL } from '../config/api';
 
 export async function queryOverpassAPI(

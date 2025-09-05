@@ -2,7 +2,7 @@
 
 import React, { FunctionComponent } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { useOSMAmenities } from '../hooks/useOSMAmenities';
+import { useOSMAmenities } from '../../hooks/useOSMAmenities';
 
 const Map: FunctionComponent = () => {
     const {
