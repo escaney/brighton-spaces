@@ -2,9 +2,9 @@
 
 import React, { FunctionComponent } from 'react';
 
-import { useAmenitySelection } from '../../contexts/AmenitySelectionContext';
 import { AmenityCard } from '../amenity-card/AmenityCard';
 import { CategoryCardProps } from './types';
+import { useAmenitySelection } from '../../contexts/amenity-context/AmenitySelectionContext';
 
 export const CategoryCard: FunctionComponent<CategoryCardProps> = ({
     id,

@@ -5,7 +5,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { useOSMAmenities } from '../hooks/useOSMAmenities';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import { AMENITY_QUERIES } from '../config/osm-queries';
+import { AMENITY_QUERIES } from '../server/constants/osm-queries';
 
 const createCustomIcon = (emoji: string, color: string) => {
     return L.divIcon({

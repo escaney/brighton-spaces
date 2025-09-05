@@ -1,8 +1,8 @@
 /** @format */
 
-import { FunctionComponent, ReactNode } from 'react';
-import { useAmenitySelection } from '../../contexts/AmenitySelectionContext';
+import { FunctionComponent } from 'react';
 import { Amenity } from './types';
+import { useAmenitySelection } from '../../contexts/amenity-context/AmenitySelectionContext';
 
 type AmenityCardProps = Amenity & {
     categoryId: string;

@@ -1,10 +1,11 @@
 /** @format */
 
-import { OSMElement, OSMAmenity } from '../types/server/osm-data';
-import { AMENITY_QUERIES } from '../config/osm-queries';
-import { queryOverpassAPI } from './osmClient';
-import { createOverpassQuery } from '../helpers/osmQueries';
 import { BRIGHTON_BOUNDS } from '../constants/map';
+import { AMENITY_QUERIES } from '../constants/osm-queries';
+import { createOverpassQuery } from '../helpers/osmQueries';
+import { OSMElement, OSMAmenity } from '../types/osm-data';
+
+import { queryOverpassAPI } from './osmClient';
 
 function convertOSMElementToAmenity(element: OSMElement): OSMAmenity | null {
     if (!element.lat || !element.lon) {

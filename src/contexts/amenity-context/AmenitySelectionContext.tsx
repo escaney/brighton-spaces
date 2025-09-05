@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import {
     AmenitySelectionContextType,
     AmenitySelectionProviderProps,
-} from '../types/client/amenities';
+} from './types';
 
 const AmenitySelectionContext = createContext<
     AmenitySelectionContextType | undefined

@@ -1,7 +1,6 @@
 /** @format */
-
-import { AMENITY_QUERIES } from '../config/osm-queries';
 import { BRIGHTON_BOUNDS } from '../constants/map';
+import { AMENITY_QUERIES } from '../constants/osm-queries';
 import { formatOSMQuery } from './osm';
 
 export function createOverpassQuery(

@@ -1,6 +1,6 @@
 /** @format */
 
-import { Category } from '../types/server/categories';
+import { Category } from '../types/categories';
 
 export function getCategoryById(
     categories: Category[],

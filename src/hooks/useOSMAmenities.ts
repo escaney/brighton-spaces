@@ -1,7 +1,7 @@
 /** @format */
 
 import { useQuery } from '@tanstack/react-query';
-import { fetchOSMAmenities } from '../services/amenities';
+import { fetchOSMAmenities } from '../server/services/amenities';
 
 export const OSM_AMENITIES_QUERY_KEY = ['osm-amenities'] as const;
 

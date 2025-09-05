@@ -1,9 +1,9 @@
 /** @format */
 
 import React, { FunctionComponent } from 'react';
-import { CATEGORIES } from '../data';
 import { CategoryCard } from '../components/category-card/CategoryCard';
-import { AmenitySelectionProvider } from '../contexts/AmenitySelectionContext';
+import { AmenitySelectionProvider } from '../contexts/amenity-context/AmenitySelectionContext';
+import { CATEGORIES } from '../data';
 
 const CategoriesPage: FunctionComponent = () => {
     return (

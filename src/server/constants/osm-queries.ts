@@ -1,6 +1,6 @@
 /** @format */
 
-import { AmenityQuery } from '../types/server/osm-data';
+import { AmenityQuery } from '../types/osm-data';
 
 export const AMENITY_QUERIES: Record<string, AmenityQuery> = {
     'drinking-water': {
